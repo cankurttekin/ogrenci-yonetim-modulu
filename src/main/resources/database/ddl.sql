@@ -1,6 +1,6 @@
 CREATE TYPE department_enum AS ENUM (
-    'Bilgisayar Muhendisligi',
-    'Elektrik Muhendisligi',
+    'BILGISAYAR_MUHENDISLIGI',
+    'ELEKTRIK_MUHENDISLIGI',
     'SOSYOLOJI',
     'ISLETME'
 );

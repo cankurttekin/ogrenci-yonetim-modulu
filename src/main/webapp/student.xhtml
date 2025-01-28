@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Öğrenci Yönetim Modülü</title>
+    <h:outputStylesheet library="css" name="styles.css" />
+</h:head>
+
+<h:body>
+    <h:form id="studentForm">
+        <div class="page-header">
+            <h2>Öğrenci Yönetim Modülü</h2>
+            <a href="https://github.com/cankurttekin" target="_blank" class="github-link">
+                github.com/cankurttekin
+            </a>
+        </div>
+
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true">
+            <p:commandButton value="Hayır" type="button" styleClass="ui-confirmdialog-no ui-button-secondary"/>
+            <p:commandButton value="Evet" type="button" styleClass="ui-confirmdialog-yes ui-button-danger"/>
+        </p:confirmDialog>
+
+        <!-- Student Form -->
+        <p:panel id="studentPanel" header="Öğrenci Ekle Veya Güncelle">
+            <h:panelGrid columns="4" cellpadding="5">
+                <h:outputLabel for="firstName" value="Ad:"/>
+                <p:inputText id="firstName" value="#{studentBean.student.firstName}" required="true"/>
+
+                <h:outputLabel for="lastName" value="Soyad:"/>
+                <p:inputText id="lastName" value="#{studentBean.student.lastName}" required="true"/>
+
+                <h:outputLabel for="studentNumber" value="Ögrenci Numarası:"/>
+                <p:inputText id="studentNumber" value="#{studentBean.student.studentNumber}" required="true"/>
+
+                <h:outputLabel for="department" value="Bölüm:"/>
+                <p:selectOneMenu id="department" value="#{studentBean.student.department}">
+                    <f:selectItem itemLabel="Bölüm" itemValue=""/>
+                    <f:selectItem itemLabel="Bilgisayar Muhendisligi" itemValue="BILGISAYAR_MUHENDISLIGI"/>
+                    <f:selectItem itemLabel="Elektronik Mühendisliği" itemValue="ELEKTRIK_MUHENDISLIGI"/>
+                    <f:selectItem itemLabel="Sosyoloji" itemValue="SOSYOLOJI"/>
+                    <f:selectItem itemLabel="İşletme" itemValue="ISLETME"/>
+                </p:selectOneMenu>
+
+                <h:outputLabel for="enrollmentDate" value="Kayıt Tarihi:"/>
+                <p:calendar id="enrollmentDate" 
+                           value="#{studentBean.student.enrollmentDate}" 
+                           pattern="dd-MM-yyyy"
+                           locale="tr"/>
+
+                <p:commandButton value="Kaydet" 
+                               action="#{studentBean.saveStudent()}" 
+                               update="studentTable studentPanel"
+                               styleClass="save-button"/>
+            </h:panelGrid>
+        </p:panel>
+
+        <!-- Search Bar -->
+        <p:panel>
+            <h:panelGrid columns="3">
+                <p:outputLabel for="searchTerm" value="Ara:"/>
+                <p:inputText id="searchTerm" value="#{studentBean.searchTerm}">
+                    <p:ajax event="keyup" listener="#{studentBean.search}" update="studentTable" delay="300"/>
+                </p:inputText>
+                <p:commandButton value="Ara" 
+                                 action="#{studentBean.search}" 
+                                 update=":studentForm:studentTable"
+                                 process="@this searchTerm"
+                                 styleClass="search-button"/>
+            </h:panelGrid>
+        </p:panel>
+
+        <!-- Student Table -->
+        <p:dataTable id="studentTable" 
+                     var="student" 
+                     value="#{studentBean.filteredStudents}" 
+                     paginator="true" 
+                     rows="10"
+                     lazy="false">
+            <p:column headerText="Ad" filterBy="#{student.firstName}" filterMatchMode="contains">
+                <h:outputText value="#{student.firstName}"/>
+            </p:column>
+
+            <p:column headerText="Soyad" filterBy="#{student.lastName}" filterMatchMode="contains">
+                <h:outputText value="#{student.lastName}"/>
+            </p:column>
+
+            <p:column headerText="Öğrenci Numarası" filterBy="#{student.studentNumber}" filterMatchMode="contains">
+                <h:outputText value="#{student.studentNumber}"/>
+            </p:column>
+
+            <p:column headerText="Bölüm" filterBy="#{student.department}" filterMatchMode="contains">
+                <h:outputText value="#{student.department}"/>
+            </p:column>
+
+            <p:column headerText="Kayıt Tarihi" filterBy="#{student.enrollmentDate}" filterMatchMode="contains">
+                <h:outputText value="#{student.enrollmentDate}"/>
+            </p:column>
+
+            <p:column headerText="Eylemler" style="width:150px;text-align:center">
+                <div class="action-buttons">
+                    <p:commandButton value="Düzenle" 
+                                     action="#{studentBean.setStudent(student)}" 
+                                     update=":studentForm:studentPanel"
+                                     process="@this"
+                                     styleClass="edit-button"/>
+                    
+                    <p:commandButton value="Sil" 
+                                     action="#{studentBean.deleteStudent(student.id)}" 
+                                     update=":studentForm:studentTable"
+                                     styleClass="delete-button"
+                                     process="@this">
+                        <p:confirm header="Silme Onayı"
+                                   message="Öğrenci Numarası: #{student.studentNumber}. Silmeyi onaylıyor musunuz?"
+                                   icon="ui-icon-alert"/>
+                    </p:commandButton>
+                </div>
+            </p:column>
+        </p:dataTable>
+    </h:form>
+
+    <div class="footer">
+        <a style="text-decoration: none" href="https://can.kurttekin.com" target="_blank" class="website">
+            cankurttekin
+        </a>
+    </div>
+</h:body>
+
+</html>

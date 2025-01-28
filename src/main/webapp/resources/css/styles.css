@@ -1,0 +1,109 @@
+/* General styles */
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+.page-header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+.page-header h2 {
+    margin: 0;
+    padding: 10px;
+}
+
+.github-link {
+    color: #7f8c8d;
+    text-decoration: none;
+}
+
+/* Panel styles */
+.ui-panel {
+    margin-bottom: 20px !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+}
+
+.ui-panel .ui-panel-titlebar {
+    background-color: #242938 !important;
+    color: white !important;
+}
+
+/* Form styles */
+.ui-inputfield {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 5px 0 !important;
+}
+
+/* Button styles */
+.ui-button {
+    margin: 5px !important;
+}
+
+.edit-button {
+    background-color: #242938 !important;
+    border-color: #242938 !important;
+    color: white !important;
+}
+
+.delete-button {
+    background-color: #e74c3c !important;
+    border-color: #e74c3c !important;
+    color: white !important;
+}
+
+.save-button {
+    background-color: #2ecc71 !important;
+    border-color: #2ecc71 !important;
+    color: white !important;
+}
+
+.search-button {
+    background-color: #f39c12 !important;
+    border-color: #f39c12 !important;
+    color: white !important;
+}
+
+/* Table styles */
+.ui-datatable {
+    margin-top: 20px !important;
+}
+
+.ui-datatable th {
+    background-color: #34495e !important;
+    color: white !important;
+}
+
+.ui-datatable-even {
+    background-color: #f9f9f9 !important;
+}
+
+.ui-datatable-odd {
+    background-color: #ffffff !important;
+}
+
+/* Footer styles */
+.footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    border-top: 1px solid #bdc3c7;
+    color: #7f8c8d;
+}
+
+/* Action buttons in table */
+.action-buttons {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.action-buttons .ui-button {
+    margin: 0 !important;
+} 

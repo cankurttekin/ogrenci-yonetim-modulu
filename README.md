@@ -1,7 +1,12 @@
 # Öğrenci Yönetim Modülü
 
-Bu proje, öğrencilerin temel bilgilerini kaydetmek, görüntülemek, güncellemek ve silmek için basit bir web uygulamasıdır.
-
+Bu proje, öğrencilerin temel bilgilerini kaydetmek, görüntülemek, güncellemek, silmek ve herhangi bir verisiyle filtreleme yapmak gibi ozelliklerle olusturulmus basit bir web uygulamasıdır.
+<br />
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+<br />
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
+![Hibernate](https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=Hibernate&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ## İçindekiler
 1.  [Proje Açıklaması](#proje-açıklaması)
 2.  [Kurulum](#kurulum)

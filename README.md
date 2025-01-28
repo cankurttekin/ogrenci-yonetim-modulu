@@ -13,7 +13,8 @@ Bu proje, öğrencilerin temel bilgilerini kaydetmek, görüntülemek, güncelle
 3.  [Çalıştırma](#çalıştırma)
 4.  [Bağımlılıklar](#bağımlılıklar)
 5.  [Yapılandırma Dosyaları](#yapılandırma-dosyaları)
-6.  [Lisans](#lisans)
+6.  [Ekran Görüntüsü](#ekran-görüntüsü)
+7.  [Lisans](#lisans)
 
 ## Proje Açıklaması
 Bu proje, Java tabanlı bir web uygulamasıdır ve öğrencilerin bilgilerini (ad, soyad, öğrenci numarası, bölüm ve kayıt tarihi) yönetmek için kullanılmaktadır. Kullanıcılar öğrenci ekleyebilir, mevcut öğrencileri düzenleyebilir, silebilir ve arama yapabilir. Veritabanı olarak PostgreSQL kullanılmaktadır. Arayüz JSF ve PrimeFaces kullanılarak oluşturulmuştur.
@@ -66,6 +67,9 @@ Bu bağımlılıklar `pom.xml` dosyasında belirtilmiştir. Maven, bu bağımlı
     *   `hibernate.dialect`: Kullanılacak SQL dialekti.
     *   `hibernate.show_sql`: SQL sorgularının konsolda gösterilip gösterilmeyeceği.
     *   `hibernate.hbm2ddl.auto`: Şema güncelleme stratejisi (`update` olarak ayarlanmıştır).
+
+## Ekran Görüntüsü
+![screenshot](/assets/screenshot.png)
 
 ## Lisans
 GPLv3
